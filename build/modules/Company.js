@@ -1,19 +1,31 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Employee_1 = require("./Employee");
 var Company = /** @class */ (function () {
     function Company() {
         this.timer = {};
         this.timerCount = 0;
+        this.employees = [];
         console.log("I'm a company!");
     }
     Company.prototype.init = function () {
         this.timer = setInterval(this.onTimerInterval.bind(this), 1000);
+        while (this.employees.length < 10) {
+            this.createEmployee();
+        }
+        console.log(this.employees);
     };
     Company.prototype.onTimerInterval = function () {
         console.log("burple");
         this.timerCount++;
-        console.log(this.timerCount);
+        this.randomEvent;
         // clearInterval(this.timer);
+    };
+    Company.prototype.randomEvent = function () { };
+    Company.prototype.createEmployee = function () {
+        var newEmployee = new Employee_1.Employee("Travis", "Johnston", 100000);
+        this.employees.push(newEmployee);
+        return newEmployee;
     };
     return Company;
 }());

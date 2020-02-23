@@ -1,12 +1,12 @@
 import { Employee } from "./Employee";
+import { Position } from "./enums/Position";
 
 export class Company {
 	private timer: Object = {};
 	private timerCount: number = 0;
-	private employees: Employee[];
+	private employees: Employee[] = [];
 
 	constructor() {
-		this.employees = [];
 		console.log("I'm a company!");
 	}
 
@@ -30,7 +30,18 @@ export class Company {
 	private randomEvent(): void {}
 
 	private createEmployee(): Employee {
-		const newEmployee = new Employee("Travis", "Johnston", 100000);
+		const min: number = 0;
+		const max: number = 10;
+		const randomNumber: number = Math.floor(
+			Math.random() * (1 + max - min) + min,
+		);
+
+		const newEmployee = new Employee(
+			"Travis",
+			"Johnston",
+			1000000,
+			Position.PRESIDENT,
+		);
 		this.employees.push(newEmployee);
 		return newEmployee;
 	}
