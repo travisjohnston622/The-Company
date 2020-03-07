@@ -17,7 +17,7 @@ export class Employee {
 		this.firstName = firstName ? firstName : this.createFirstName();
 		this.lastName = lastName ? lastName : this.createLastName();
 		this.salary = salary ? salary : 10000;
-		this.position = position ? position : Position.ANALYST;
+		this.position = position ? position : Position.ASSOCIATE;
 	}
 
 	private createFirstName(): string {
@@ -26,5 +26,34 @@ export class Employee {
 
 	private createLastName(): string {
 		return data.last_names[randomNumber(0, data.last_names.length - 1)];
+	}
+
+	public promote(): void {
+		switch (this.position) {
+			case Position.ASSOCIATE:
+				this.position = Position.ANALYST;
+				break;
+			case Position.ANALYST:
+				this.position = Position.SENIOR_ANALYST;
+				break;
+			case Position.SENIOR_ANALYST:
+				this.position = Position.MANAGER;
+				break;
+			case Position.MANAGER:
+				this.position = Position.SENIOR_MANAGER;
+				break;
+			case Position.SENIOR_MANAGER:
+				this.position = Position.DIRECTOR;
+				break;
+			case Position.DIRECTOR:
+				this.position = Position.VICE_PRESIDENT;
+				break;
+			case Position.VICE_PRESIDENT:
+				this.position = Position.SENIOR_VICE_PRESIDENT;
+				break;
+			case Position.SENIOR_VICE_PRESIDENT:
+				this.position = Position.PRESIDENT;
+				break;
+		}
 	}
 }
