@@ -37,6 +37,8 @@ export class Company {
 	private createEmployee(): Employee {
 
 		const newEmployee = new Employee();
+		newEmployee.promote();
+		newEmployee.promote();
 		this.employees.push(newEmployee);
 		return newEmployee;
 	}
