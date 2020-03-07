@@ -2,8 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Employee_1 = require("./Employee");
 var Company = /** @class */ (function () {
+    // private name: string;
     function Company() {
         this.timer = {};
+        this.timerCount = 0;
+        this.employees = [];
         this.timerCount = 0;
         this.employees = [];
         console.log("I'm a company!");
@@ -16,14 +19,14 @@ var Company = /** @class */ (function () {
         console.log(this.employees);
     };
     Company.prototype.onTimerInterval = function () {
-        console.log("burple");
+        // console.log("burple");
         this.timerCount++;
         this.randomEvent;
         // clearInterval(this.timer);
     };
     Company.prototype.randomEvent = function () { };
     Company.prototype.createEmployee = function () {
-        var newEmployee = new Employee_1.Employee("Travis", "Johnston", 100000);
+        var newEmployee = new Employee_1.Employee();
         this.employees.push(newEmployee);
         return newEmployee;
     };

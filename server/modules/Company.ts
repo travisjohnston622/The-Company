@@ -1,12 +1,17 @@
 import { Employee } from "./Employee";
 import { Position } from "./enums/Position";
+import randomNumber from './utils/randomNumber';
+import * as data from './data/names.json';
 
 export class Company {
 	private timer: Object = {};
 	private timerCount: number = 0;
 	private employees: Employee[] = [];
+	// private name: string;
 
 	constructor() {
+		this.timerCount = 0;
+		this.employees = [];
 		console.log("I'm a company!");
 	}
 
@@ -21,28 +26,20 @@ export class Company {
 	}
 
 	private onTimerInterval(): void {
-		console.log("burple");
+		// console.log("burple");
 		this.timerCount++;
 		this.randomEvent;
 		// clearInterval(this.timer);
 	}
 
-	private randomEvent(): void {}
+	private randomEvent(): void { }
 
 	private createEmployee(): Employee {
-		const min: number = 0;
-		const max: number = 10;
-		const randomNumber: number = Math.floor(
-			Math.random() * (1 + max - min) + min,
-		);
 
-		const newEmployee = new Employee(
-			"Travis",
-			"Johnston",
-			1000000,
-			Position.PRESIDENT,
-		);
+		const newEmployee = new Employee();
 		this.employees.push(newEmployee);
 		return newEmployee;
 	}
+
+
 }
