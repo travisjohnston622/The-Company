@@ -1,5 +1,5 @@
-import { Employee } from "./Employee";
-import { Position } from "./enums/Position";
+import { Employee } from './Employee';
+import { Position } from './enums/Position';
 import randomNumber from './utils/randomNumber';
 import * as data from './data/names.json';
 
@@ -32,16 +32,14 @@ export class Company {
 		// clearInterval(this.timer);
 	}
 
-	private randomEvent(): void { }
+	private randomEvent(): void {}
 
 	private createEmployee(): Employee {
-
 		const newEmployee = new Employee();
 		newEmployee.promote();
 		newEmployee.promote();
+		console.log(newEmployee.getFullName());
 		this.employees.push(newEmployee);
 		return newEmployee;
 	}
-
-
 }

@@ -66,6 +66,22 @@ var Employee = /** @class */ (function () {
     Employee.prototype.meritIncrease = function (percentage) {
         return Math.floor(this.salary * (1 + percentage));
     };
+    // GETTERS
+    Employee.prototype.getFirstName = function () {
+        return this.firstName;
+    };
+    Employee.prototype.getLastName = function () {
+        return this.lastName;
+    };
+    Employee.prototype.getSalary = function () {
+        return this.salary;
+    };
+    Employee.prototype.getPosition = function () {
+        return this.position;
+    };
+    Employee.prototype.getFullName = function () {
+        return this.firstName + ' ' + this.lastName;
+    };
     return Employee;
 }());
 exports.Employee = Employee;

@@ -27,6 +27,9 @@ var Company = /** @class */ (function () {
     Company.prototype.randomEvent = function () { };
     Company.prototype.createEmployee = function () {
         var newEmployee = new Employee_1.Employee();
+        newEmployee.promote();
+        newEmployee.promote();
+        console.log(newEmployee.getFullName());
         this.employees.push(newEmployee);
         return newEmployee;
     };

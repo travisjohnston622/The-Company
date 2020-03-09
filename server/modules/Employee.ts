@@ -3,43 +3,11 @@ import * as data from './data/names.json';
 import randomNumber from './utils/randomNumber';
 import { MeritIncrease } from './enums/MeritIncrease';
 
-export class Employee {
+export class Employee implements IPERSON {
 	private firstName: string;
 	private lastName: string;
 	private salary: number;
 	private position: Position;
-
-	public getFirstName(): string {
-		return this.firstName;
-	}
-
-	public setFirstName(firstName: string): void {
-		this.firstName = firstName;
-	}
-
-	public getLastName(): string {
-		return this.lastName;
-	}
-
-	public setLastName(lastName: string): void {
-		this.lastName = lastName;
-	}
-
-	public getSalary(): number {
-		return this.salary;
-	}
-
-	public setSalary(salary: number): void {
-		this.salary = salary;
-	}
-
-	public getPosition(): Position {
-		return this.position;
-	}
-
-	public setPosition(position: Position): void {
-		this.position = position;
-	}
 
 	constructor(
 		firstName?: string,
@@ -100,5 +68,26 @@ export class Employee {
 
 	private meritIncrease(percentage: number): number {
 		return Math.floor(this.salary * (1 + percentage));
+	}
+
+	// GETTERS
+	public getFirstName(): string {
+		return this.firstName;
+	}
+
+	public getLastName(): string {
+		return this.lastName;
+	}
+
+	public getSalary(): number {
+		return this.salary;
+	}
+
+	public getPosition(): Position {
+		return this.position;
+	}
+
+	public getFullName(): string {
+		return this.firstName + ' ' + this.lastName;
 	}
 }
