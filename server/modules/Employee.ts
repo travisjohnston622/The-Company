@@ -3,7 +3,7 @@ import * as data from './data/names.json';
 import randomNumber from './utils/randomNumber';
 import { MeritIncrease } from './enums/MeritIncrease';
 
-export class Employee implements IPERSON {
+export class Employee implements IPerson {
 	private firstName: string;
 	private lastName: string;
 	private salary: number;

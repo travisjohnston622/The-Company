@@ -1,12 +1,14 @@
 import { Employee } from './Employee';
 import { Position } from './enums/Position';
-import randomNumber from './utils/randomNumber';
 import * as data from './data/names.json';
+import { HistoryLog } from './utils/HistoryLog';
+import randomNumber from './utils/randomNumber';
 
 export class Company {
 	private timer: Object = {};
 	private timerCount: number = 0;
 	private employees: Employee[] = [];
+	private historyLog: HistoryLog = new HistoryLog();
 	// private name: string;
 
 	constructor() {
@@ -22,14 +24,14 @@ export class Company {
 			this.createEmployee();
 		}
 
-		console.log(this.employees);
+		console.log(this.historyLog.getLog());
+
+		// console.log(this.employees);
 	}
 
 	private onTimerInterval(): void {
-		// console.log("burple");
 		this.timerCount++;
 		this.randomEvent;
-		// clearInterval(this.timer);
 	}
 
 	private randomEvent(): void {}
@@ -38,8 +40,8 @@ export class Company {
 		const newEmployee = new Employee();
 		newEmployee.promote();
 		newEmployee.promote();
-		console.log(newEmployee.getFullName());
 		this.employees.push(newEmployee);
+		this.historyLog.addNewEmployee(newEmployee);
 		return newEmployee;
 	}
 }
